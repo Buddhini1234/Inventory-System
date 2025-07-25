@@ -1,0 +1,60 @@
+const mongoose = require('mongoose');
+
+const ComputerSchema = new mongoose.Schema({
+  purchasedFrom: String,
+  makeModel: String,
+  type: String,
+  inventoryNumber: String,
+  serialNumber: String,
+  location: String,
+  processorSpeed: String,
+  ram: String,
+  hdd: String,
+  floppy: String,
+  cdRom: String,
+  soundCard: String,
+  tvCard: String,
+  networkCard: String,
+  modemExternal: String,
+  modemInternal: String,
+  graphicCard: String,
+  motherBoard: String,
+  deepCool: String,
+  subTotal: String,
+
+  keyboard: String,
+  keyboardSN: String,
+  mouse: String,
+  mouseSN: String,
+  micInternal: String,
+  micInternalSN: String,
+  micExternal: String,
+  micExternalSN: String,
+  scanner: String,
+  scannerSN: String,
+
+  monitorModel: String,
+  monitorSN: String,
+  monitorPurchaseDate: String,
+  printerModel: String,
+  printerSN: String,
+  printerPurchaseDate: String,
+  outputScannerModel: String,
+  outputScannerSN: String,
+  outputScannerPurchaseDate: String,
+
+  upsModel: String,
+  upsSN: String,
+  upsPurchaseDate: String,
+  networkCableModel: String,
+  networkCableSN: String,
+  networkCablePurchaseDate: String,
+
+  os: String,
+  totalCost: String,
+  maintainedBy: String,
+  importantInfo: String,
+  warranty: String
+});
+
+module.exports = mongoose.model('Computer', ComputerSchema);
