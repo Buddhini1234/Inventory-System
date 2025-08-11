@@ -9,6 +9,7 @@ const EditSwitch = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     purchasedFrom: '',
+    inventoryNumber: '',
     equipment: '',
     makeModel: '',
     serialNo: '',
@@ -98,6 +99,7 @@ const EditSwitch = () => {
 
   const fields = [
     { label: "Purchased/Transferred From", name: "purchasedFrom", type: "text" },
+    { label: "Inventory Number", name: "inventoryNumber", type: "text" },
     { label: "Equipment", name: "equipment", type: "text" },
     { label: "Make / Model", name: "makeModel", type: "text" },
     { label: "Serial No", name: "serialNo", type: "text" },
@@ -120,7 +122,7 @@ const EditSwitch = () => {
   ];
 
   return (
-    <div className="container py-4" style={{ maxWidth: '700px' }}>
+    <div className="container py-4" style={{ maxWidth: '700px' , marginTop: '80px'}}>
       <div className="card shadow-lg">
         <div className="card-header bg-primary text-white text-center">
           <h4>Edit Network Switch</h4>

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const SwitchSchema = new mongoose.Schema({
   purchasedFrom: { type: String, default: 'Institute NIFS' },
+  inventoryNumber: { type: String, required: true }, // ✅ Added this line
   equipment: String,
   makeModel: String,
   serialNo: String,
@@ -25,3 +26,4 @@ const SwitchSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Switch', SwitchSchema);
+

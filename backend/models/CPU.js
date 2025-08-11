@@ -1,21 +1,37 @@
-// models/cpu.js
+// models/ups.js
 const mongoose = require('mongoose');
 
 const CPUSchema = new mongoose.Schema({
-  makeModel: { type: String, required: true },
-  type: { type: String, required: true },
+  purchasedFrom: { type: String, default: 'Institute: NIFS' }, // fixed default
   inventoryNumber: { type: String, required: true },
-  serialNumber: { type: String, required: true },
-  location: { type: String, required: true },
-  processorSpeed: String,
-  ram: String,
-  hdd: String,
-  os: String,
+  equipment: { type: String, required: true },
+  makeModel: { type: String, required: true },
+  serialNumber: String,
+  powerRating: String,
+  upsType: String,
+  fullLoadBackupTime: String,
+  remoteShutdown: String,
+  batteryType: String,
+  batterySize: String,
+  overloadAlarm: String,
+  inputVoltageRange: String,
+  outputVoltageRange: String,
+  rechargeTime: String,
+  parallelPort: String,
+  usbPort: String,
+  lcdIndicator: String,
+  dataCable: String,
+  powerCable: String,
+  interface: String,
+  otherFeatures: String,
+  location: String,
+  purchaseDate: String,
   totalCost: String,
-  maintainedBy: String,
   warranty: String,
-  importantInfo: String,
-  purchaseDate: String
+  maintainedBy: String,
+  otherInformation: String,
+  connectedFolios: String
 });
 
 module.exports = mongoose.model('CPU', CPUSchema);
+

@@ -136,7 +136,7 @@ const EditComputer = () => {
   };
 
   return (
-    <div className="container py-4">
+    <div className="container py-4" style={{ marginTop: '80px' }}>
       <div className="card shadow-lg">
         <div className="card-header text-center bg-primary text-white">
           <h4>Edit Computer Details</h4>

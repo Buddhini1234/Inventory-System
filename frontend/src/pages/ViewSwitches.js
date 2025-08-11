@@ -25,6 +25,7 @@ const ViewSwitch = () => {
   }, []);
 
   const fields = [
+    { label: 'Inventory Number', key: 'inventoryNumber' }, // ✅ Added here
     { label: 'Equipment', key: 'equipment' },
     { label: 'Make / Model', key: 'makeModel' },
     { label: 'Serial No', key: 'serialNo' },
@@ -46,14 +47,11 @@ const ViewSwitch = () => {
     { label: 'Certificate', key: 'certificate' }
   ];
 
-  // Function to export one switch's data to Excel
   const exportSingleSwitchToExcel = (sw) => {
     const data = fields.map(field => ({
       [field.label]: sw[field.key] || '-',
     }));
 
-    // Transform to key-value object for XLSX (instead of array of objects)
-    // So convert array of single-key objects to one object:
     const formattedData = {};
     data.forEach(obj => {
       const key = Object.keys(obj)[0];
@@ -67,9 +65,9 @@ const ViewSwitch = () => {
     const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
     const blobData = new Blob([excelBuffer], { type: 'application/octet-stream' });
 
-    const filename = `Switch-${sw.makeModel || sw._id}.xlsx`;
+    const filename = `Switch-${sw.inventoryNumber || sw.makeModel || sw._id}.xlsx`; // ✅ Updated filename
     saveAs(blobData, filename);
-    toast.success(`📁 Excel downloaded for switch: ${sw.makeModel || sw._id}`);
+    toast.success(`📁 Excel downloaded for switch: ${sw.inventoryNumber || sw.makeModel || sw._id}`);
   };
 
   const exportToExcel = () => {

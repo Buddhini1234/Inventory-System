@@ -4,21 +4,35 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddCPU = () => {
   const [form, setForm] = useState({
-    purchasedFrom: 'Institute NIFS', // ✅ First field
-    makeModel: '',
-    type: '',
+    purchasedFrom: 'Institute: NIFS', // fixed
     inventoryNumber: '',
+    equipment: '',
+    makeModel: '',
     serialNumber: '',
+    powerRating: '',
+    upsType: '',
+    fullLoadBackupTime: '',
+    remoteShutdown: '',
+    batteryType: '',
+    batterySize: '',
+    overloadAlarm: '',
+    inputVoltageRange: '',
+    outputVoltageRange: '',
+    rechargeTime: '',
+    parallelPort: '',
+    usbPort: '',
+    lcdIndicator: '',
+    dataCable: '',
+    powerCable: '',
+    interface: '',
+    otherFeatures: '',
     location: '',
-    processorSpeed: '',
-    ram: '',
-    hdd: '',
-    os: '',
+    purchaseDate: '',
     totalCost: '',
-    maintainedBy: '',
     warranty: '',
-    importantInfo: '',
-    purchaseDate: ''
+    maintainedBy: '',
+    otherInformation: '',
+    connectedFolios: ''
   });
 
   const handleChange = (e) => {
@@ -35,26 +49,40 @@ const AddCPU = () => {
       });
 
       if (response.ok) {
-        toast.success('✅ CPU added successfully!');
+        toast.success('✅ UPS added successfully!');
         setForm({
-          purchasedFrom: 'Institute NIFS', // ✅ Reset back
-          makeModel: '',
-          type: '',
+          purchasedFrom: 'Institute: NIFS',
           inventoryNumber: '',
+          equipment: '',
+          makeModel: '',
           serialNumber: '',
+          powerRating: '',
+          upsType: '',
+          fullLoadBackupTime: '',
+          remoteShutdown: '',
+          batteryType: '',
+          batterySize: '',
+          overloadAlarm: '',
+          inputVoltageRange: '',
+          outputVoltageRange: '',
+          rechargeTime: '',
+          parallelPort: '',
+          usbPort: '',
+          lcdIndicator: '',
+          dataCable: '',
+          powerCable: '',
+          interface: '',
+          otherFeatures: '',
           location: '',
-          processorSpeed: '',
-          ram: '',
-          hdd: '',
-          os: '',
+          purchaseDate: '',
           totalCost: '',
-          maintainedBy: '',
           warranty: '',
-          importantInfo: '',
-          purchaseDate: ''
+          maintainedBy: '',
+          otherInformation: '',
+          connectedFolios: ''
         });
       } else {
-        toast.error('❌ Failed to add CPU.');
+        toast.error('❌ Failed to add UPS.');
       }
     } catch (error) {
       console.error(error);
@@ -78,33 +106,57 @@ const AddCPU = () => {
     </div>
   );
 
+  const renderYesNo = (label, name) => (
+    <div style={rowStyle}>
+      <label style={labelStyle}>{label}</label>
+      <select name={name} value={form[name]} onChange={handleChange} style={inputStyle}>
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+  );
+
   return (
     <div style={formContainerStyle}>
-      <h2 style={titleStyle}>Add CPU Details</h2>
+      <h2 style={titleStyle}>Add UPS Details</h2>
       <form onSubmit={handleSubmit}>
-        {renderInput("Purchased/Transferred From", "purchasedFrom", "text", true)} {/* ✅ First */}
-        {renderInput("Make & Model", "makeModel", "text", true)}
-        {renderInput("Type", "type", "text", true)}
+        {renderInput("Purchased/Transferred From", "purchasedFrom", "text", true)}
         {renderInput("Inventory Number", "inventoryNumber", "text", true)}
-        {renderInput("Serial Number", "serialNumber", "text", true)}
-        {renderInput("Location", "location", "text", true)}
-        {renderInput("Processor Speed", "processorSpeed")}
-        {renderInput("RAM", "ram")}
-        {renderInput("Hard Disk Drive", "hdd")}
-        {renderInput("Operating System", "os")}
-        {renderInput("Total Cost", "totalCost", "text", true)}
-        {renderInput("Maintained By", "maintainedBy", "text", true)}
-        {renderInput("Warranty", "warranty", "text", true)}
-        {renderInput("Important Info", "importantInfo")}
-        {renderInput("Purchase Date", "purchaseDate", "date")}
+        {renderInput("Equipment", "equipment", "text", true)}
+        {renderInput("Make / Model", "makeModel", "text", true)}
+        {renderInput("Serial No", "serialNumber")}
+        {renderInput("Power Rating", "powerRating")}
+        {renderInput("UPS Type", "upsType")}
+        {renderInput("Full Load Backup Time", "fullLoadBackupTime")}
+        {renderInput("Remote Shut Down", "remoteShutdown")}
+        {renderInput("Battery Type", "batteryType")}
+        {renderInput("Battery Size", "batterySize")}
+        {renderInput("Overload Alarm", "overloadAlarm")}
+        {renderInput("Input Voltage Range", "inputVoltageRange")}
+        {renderInput("Output Voltage Range", "outputVoltageRange")}
+        {renderInput("Recharge Time", "rechargeTime")}
+        {renderYesNo("Parallel Port", "parallelPort")}
+        {renderYesNo("USB Port", "usbPort")}
+        {renderYesNo("LCD Indicator", "lcdIndicator")}
+        {renderYesNo("Data Cable", "dataCable")}
+        {renderYesNo("Power Cable", "powerCable")}
+        {renderInput("Interface", "interface")}
+        {renderInput("Other Features", "otherFeatures")}
+        {renderInput("Location", "location")}
+        {renderInput("Date of Purchase/Transfer", "purchaseDate", "date")}
+        {renderInput("Total Cost Rs.", "totalCost")}
+        {renderInput("Warranty", "warranty")}
+        {renderInput("Maintained By", "maintainedBy")}
+        {renderInput("Other Information", "otherInformation")}
+        {renderInput("Connected Folios", "connectedFolios")}
         <button type="submit" style={buttonStyle}>Submit</button>
       </form>
     </div>
   );
 };
 
-// === Styles ===
-
+// === Styles (unchanged) ===
 const formContainerStyle = {
   padding: '5rem',
   maxWidth: '1000px',

@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const AddSwitch = () => {
   const [form, setForm] = useState({
     purchasedFrom: 'Institute NIFS',
+    inventoryNumber: '', // ✅ Added field
     equipment: '',
     makeModel: '',
     serialNo: '',
@@ -44,6 +45,7 @@ const AddSwitch = () => {
         toast.success('✅ Network switch added!');
         setForm({
           purchasedFrom: 'Institute NIFS',
+          inventoryNumber: '',
           equipment: '',
           makeModel: '',
           serialNo: '',
@@ -116,6 +118,7 @@ const AddSwitch = () => {
       <h2 style={titleStyle}>Add Network Switch</h2>
       <form onSubmit={handleSubmit}>
         {renderInput('Purchased/Transferred From', 'purchasedFrom', true, true)}
+        {renderInput('Inventory Number', 'inventoryNumber', false, true)} {/* ✅ New field */}
         {renderInput('Equipment', 'equipment')}
         {renderInput('Make / Model', 'makeModel')}
         {renderInput('Serial No', 'serialNo')}
@@ -142,7 +145,7 @@ const AddSwitch = () => {
   );
 };
 
-// === Styles like AddComputer ===
+// === Styles ===
 const formContainerStyle = {
   padding: '5rem',
   maxWidth: '1000px',
